@@ -1,8 +1,11 @@
+import Intro from '../../assets/Intro.mov'
 
 export const Main = () => {
   return (
     <main>
-        indhold
+      <div>
+        <video src={Intro} autoPlay loop muted></video>
+      </div>
     </main>
   )
 }
