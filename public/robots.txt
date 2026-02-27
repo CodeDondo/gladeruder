@@ -1,0 +1,21 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Disallow crawling of unnecessary paths
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.config.js$
+
+# Sitemap location
+Sitemap: https://gladeruder.dk/sitemap.xml

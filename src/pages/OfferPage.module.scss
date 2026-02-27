@@ -1,0 +1,347 @@
+.wrapper {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #000000 0%, #353535 100%);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(30, 130, 198, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(30, 130, 198, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Info Section */
+.infoSection {
+  h2 {
+    color: #0f3c57;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 900;
+    margin: 0 0 1rem;
+    letter-spacing: -1px;
+  }
+}
+
+.infoRule {
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, #1e82c6 0%, #0f3c57 100%);
+  margin: 1.5rem 0 2.5rem;
+  border-radius: 10px;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateX(8px);
+  }
+
+  h3 {
+    color: #0f3c57;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.infoIcon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+
+  &:nth-child(1) { animation-delay: 0s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Form Section */
+.formSection {
+  background: #fff;
+  border-radius: 18px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(30, 130, 198, 0.05);
+
+  h2 {
+    color: #0f3c57;
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.5px;
+  }
+}
+
+.formSubtitle {
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    color: #0f3c57;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+  }
+
+  input,
+  textarea {
+    padding: 0.9rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #333;
+
+    &::placeholder {
+      color: #aaa;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #1e82c6;
+      box-shadow: 0 0 0 3px rgba(30, 130, 198, 0.1);
+    }
+
+    &:hover {
+      border-color: #1e82c6;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #1e82c6 0%, #0f3c57 100%);
+  color: #fff;
+  padding: 1.1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(30, 130, 198, 0.3);
+  margin-top: 1rem;
+
+  span {
+    letter-spacing: 0.5px;
+  }
+
+  svg {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(30, 130, 198, 0.45);
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+}
+
+/* Success Message */
+.successMessage {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+  border: 2px solid #22c55e;
+  border-radius: 14px;
+  padding: 2.5rem;
+  text-align: center;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  h3 {
+    color: #15803d;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 1rem 0 0.5rem;
+  }
+
+  p {
+    color: #16a34a;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+}
+
+.successIcon {
+  font-size: 3rem;
+  color: #22c55e;
+  animation: bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contentGrid {
+    gap: 3rem;
+  }
+
+  .formSection {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper { padding: 3rem 1.5rem; }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .infoSection {
+    h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); }
+  }
+
+  .formSection {
+    padding: 2rem;
+  }
+
+  .form {
+    gap: 1.5rem;
+  }
+
+  .submitBtn {
+    padding: 1rem 1.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper { padding: 2rem 1rem; }
+
+  .infoSection h2 { font-size: clamp(1.4rem, 2vw, 1.8rem); }
+
+  .infoItem {
+    gap: 1rem;
+
+    h3 { font-size: 1rem; }
+    p { font-size: 0.9rem; }
+  }
+
+  .infoIcon { font-size: 2rem; }
+
+  .formSection {
+    padding: 1.5rem;
+    border-radius: 14px;
+  }
+
+  .formSection h2 { font-size: 1.4rem; }
+
+  .form { gap: 1.25rem; }
+
+  .formGroup {
+    input,
+    textarea {
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .submitBtn {
+    padding: 0.95rem 1.5rem;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .successMessage {
+    padding: 2rem 1.5rem;
+  }
+
+  .successIcon { font-size: 2.5rem; }
+}
