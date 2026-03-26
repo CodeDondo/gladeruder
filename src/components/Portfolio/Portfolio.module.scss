@@ -51,63 +51,197 @@
   z-index: 1;
 }
 
-.grid {
-  max-width: 1200px;
+.carousel {
+  max-width: 900px;
   margin: 0 auto;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  padding: 2.5rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
   position: relative;
   z-index: 1;
 }
 
-.card {
-  margin: 0;
+.arrowButton {
+  background: linear-gradient(135deg, #1e82c6 0%, #1a5a7a 100%);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(30, 130, 198, 0.3);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 28px rgba(30, 130, 198, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.carouselContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 4 / 3;
   border-radius: 16px;
   overflow: hidden;
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 }
-.card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(30, 130, 198, 0.25);
+
+.dotsContainer {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
 }
-.card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 16px;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(30, 130, 198, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+
+  &:hover {
+    background: rgba(30, 130, 198, 0.5);
+  }
 }
-.card:hover img {
-  transform: scale(1.05);
+
+.activeDot {
+  background: #1e82c6;
+  width: 32px;
+  border-radius: 6px;
+}
+
+.counter {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.loading,
+.error,
+.noItems {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #333;
+  grid-column: 1 / -1;
+}
+
+.error {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.noItems {
+  color: #666;
 }
 
 @media (max-width: 1000px) {
-  .wrapper { padding: 4rem 1.5rem; }
-  .grid { padding: 2rem; gap: 2rem; }
+  .wrapper {
+    padding: 4rem 1.5rem;
+  }
+  .carousel {
+    gap: 1rem;
+  }
+  .arrowButton {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 @media (max-width: 768px) {
-  .wrapper { padding: 3.5rem 1rem; }
-  .title { font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
-  .grid { grid-template-columns: 1fr; padding: 1.75rem; gap: 1.75rem; }
-  .card { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); }
-  .card:hover { transform: translateY(-8px); }
+  .wrapper {
+    padding: 3.5rem 1rem;
+  }
+  .title {
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  }
+  .carousel {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .arrowButton {
+    display: none;
+  }
+  .carouselContent {
+    order: 2;
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .imageContainer {
+    aspect-ratio: 3 / 2;
+  }
 }
 
 @media (max-width: 500px) {
-  .wrapper { padding: 2.5rem 0.75rem; }
-  .title { font-size: clamp(1.4rem, 2vw, 2rem); margin: 0 0 0.5rem; }
-  .rule { width: 70px; margin: 0.8rem auto 1.5rem; }
-  .grid { padding: 1.25rem; gap: 1.25rem; border-radius: 16px; }
-  .card { border-radius: 12px; }
-  .card img { border-radius: 12px; }
+  .wrapper {
+    padding: 2.5rem 0.75rem;
+  }
+  .title {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    margin: 0 0 0.5rem;
+  }
+  .rule {
+    width: 70px;
+    margin: 0.8rem auto 1.5rem;
+  }
+  .carousel {
+    gap: 0.75rem;
+  }
+  .arrowButton {
+    width: 36px;
+    height: 36px;
+  }
+  .arrowButton svg {
+    width: 18px;
+    height: 18px;
+  }
+  .imageContainer {
+    aspect-ratio: 3 / 2;
+    border-radius: 12px;
+  }
+  .dotsContainer {
+    gap: 0.6rem;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  .activeDot {
+    width: 28px;
+  }
 }
 

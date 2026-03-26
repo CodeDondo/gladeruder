@@ -2,6 +2,7 @@ import Intro from '../../assets/Intro.mp4'
 import Heart from '../../assets/Heart.svg'
 import Award from '../../assets/Award.svg'
 import Shield from '../../assets/Shield.svg'
+import { Link } from 'react-router-dom'
 import styles from './Main.module.scss'
 import { Anmeldelser } from '../Anmeldelser/Anmeldelser.jsx'
 import { Portfolio } from '../Portfolio/Portfolio.jsx'
@@ -12,6 +13,9 @@ export const Main = () => {
     <main>
       <div className={styles.introVideo}>
         <video src={Intro} autoPlay loop muted></video>
+        <Link to="/tilbud" className={styles.ctaButton}>
+          Få et tilbud
+        </Link>
       </div>
       <section className={styles.background}>
       <div className={styles.cardContainer}>

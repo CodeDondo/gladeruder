@@ -51,7 +51,7 @@
 
 .benefitsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 5rem;
 }
@@ -213,6 +213,68 @@
   }
 }
 
+.packageSection {
+  margin-bottom: 5rem;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ffffff 0%, #f2f8fd 100%);
+  box-shadow: 0 8px 24px rgba(15, 60, 87, 0.08);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  h2 {
+    font-size: 2rem;
+    color: #0f3c57;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: #335d74;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+}
+
+.packageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.packageItem {
+  background: #ffffff;
+  border: 1px solid rgba(30, 130, 198, 0.18);
+  border-radius: 12px;
+  padding: 1rem;
+  color: #0f3c57;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(15, 60, 87, 0.06);
+}
+
+.packageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e82c6 0%, #1a5a7a 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.95rem 2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(30, 130, 198, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(30, 130, 198, 0.34);
+    filter: brightness(1.03);
+  }
+}
+
 .ctaSection {
   text-align: center;
   padding: 3rem 2rem;
@@ -289,6 +351,10 @@
   .whyGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .packageSection h2 {
+    font-size: 1.75rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -309,6 +375,7 @@
   }
 
   .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
@@ -334,6 +401,22 @@
     gap: 1.5rem;
   }
 
+  .packageSection {
+    padding: 2rem 1.25rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+
+  .packageGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .ctaSection {
     padding: 2rem 1.5rem;
 
@@ -344,5 +427,15 @@
     p {
       font-size: 1rem;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .packageGrid {
+    grid-template-columns: 1fr;
   }
 }

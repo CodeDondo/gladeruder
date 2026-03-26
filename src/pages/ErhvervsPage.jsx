@@ -150,6 +150,28 @@ export const ErhvervsPage = () => {
           </div>
         </div>
 
+        {/* All-in-One Package Section */}
+        <div className={styles.packageSection}>
+          <h2>Alt-i-en Erhvervspakke</h2>
+          <p>
+            Faa en samlet loesning hvor jeg staar for hele driften: vinduer, facader, solceller,
+            vedligeholdelse og tagrenderens i en fast pakke tilpasset din virksomhed.
+          </p>
+
+          <div className={styles.packageGrid}>
+            <div className={styles.packageItem}>Vinduesrengoering inde og ude</div>
+            <div className={styles.packageItem}>Facaderengoering og glaspartier</div>
+            <div className={styles.packageItem}>Solcellerens for bedre ydelse</div>
+            <div className={styles.packageItem}>Regelmaessig vedligeholdelse</div>
+            <div className={styles.packageItem}>Tagrenderens og afvandingstjek</div>
+            <div className={styles.packageItem}>Fast kontakt og planlagte servicebesoeg</div>
+          </div>
+
+          <Link to="/tilbud" className={styles.packageButton}>
+            Sammensæt min pakke
+          </Link>
+        </div>
+
         {/* CTA */}
         <div className={styles.ctaSection}>
           <h2>Professionel Vinduesrengøring Venter</h2>

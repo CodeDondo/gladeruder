@@ -2,6 +2,8 @@ import MRW from '../../assets/logo.png'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/Logo.svg'
+import Facebook from '../../assets/Facebook.svg'
+import Instagram from '../../assets/Instagram.svg'
 import styles from './Footer.module.scss'
 
 export const Footer = () => {
@@ -44,6 +46,15 @@ export const Footer = () => {
           <h3>Kontakt:</h3>
           <p><strong>Email:</strong> <a href="mailto:kontakt@gladeruder.dk">kontakt@gladeruder.dk</a></p>
           <p><strong>Telefon:</strong> <a href="tel:+4560101080">+45 60 10 10 80</a></p>
+          
+          <div className={styles.socialLinks}>
+            <a href="https://www.facebook.com/profile.php?id=61560398069308" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <img src={Facebook} alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/glade.ruder/" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <img src={Instagram} alt="Instagram" />
+            </a>
+          </div>
         </div>
       </div>
 

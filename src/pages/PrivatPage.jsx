@@ -80,15 +80,6 @@ export const PrivatPage = () => {
               </ul>
             </div>
 
-            <div className={styles.serviceItem}>
-              <h3>Tagrenderens</h3>
-              <p>Vi renser dine tagrenderier og afløbsrør for blade og snavs.</p>
-              <ul>
-                <li>Forhindrer tilstopning</li>
-                <li>Sikre afvanding</li>
-                <li>Forebygger skader</li>
-              </ul>
-            </div>
 
             <div className={styles.serviceItem}>
               <h3>Kamrens</h3>

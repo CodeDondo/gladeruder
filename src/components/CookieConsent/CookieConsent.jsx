@@ -16,20 +16,33 @@ export const CookieConsent = () => {
     if (!savedConsent) {
       setShowConsent(true)
     } else {
-      const parsedConsent = JSON.parse(savedConsent)
-      setConsent(parsedConsent)
-      loadGtagIfConsented(parsedConsent)
+      try {
+        const parsedConsent = JSON.parse(savedConsent)
+        const normalizedConsent = {
+          necessary: true,
+          analytics: Boolean(parsedConsent.analytics),
+          marketing: Boolean(parsedConsent.marketing),
+        }
+
+        setConsent(normalizedConsent)
+        loadGtagIfConsented(normalizedConsent)
+      } catch {
+        setShowConsent(true)
+      }
     }
   }, [])
 
   const loadGtagIfConsented = (consentData) => {
-    if (consentData.analytics || consentData.marketing) {
-      // Initialize Google Analytics/Gtag here when ready
-      // window.gtag('consent', 'update', {
-      //   'analytics_storage': consentData.analytics ? 'granted' : 'denied',
-      //   'ad_storage': consentData.marketing ? 'granted' : 'denied'
-      // })
+    if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
+      return
     }
+
+    window.gtag('consent', 'update', {
+      analytics_storage: consentData.analytics ? 'granted' : 'denied',
+      ad_storage: consentData.marketing ? 'granted' : 'denied',
+      ad_user_data: consentData.marketing ? 'granted' : 'denied',
+      ad_personalization: consentData.marketing ? 'granted' : 'denied',
+    })
   }
 
   const handleAcceptAll = () => {

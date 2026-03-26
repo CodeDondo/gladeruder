@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper'
 import rudevask from '../assets/rudevask.jpg'
 import styles from './ServicePage.module.scss'
+import { FAQ } from '../components/FAQ/FAQ'
 
 export const ServicePage = () => {
   return (
@@ -60,11 +61,7 @@ export const ServicePage = () => {
             </div>
             <div className={styles.serviceItem}>
               <div className={styles.checkmark}>✓</div>
-              <span>Tagrenderens</span>
-            </div>
-            <div className={styles.serviceItem}>
-              <div className={styles.checkmark}>✓</div>
-              <span>Kamrens</span>
+              <span>Karmrens</span>
             </div>
           </div>
         </div>
@@ -104,22 +101,14 @@ export const ServicePage = () => {
 
           <div className={styles.serviceSection}>
             <div className={styles.serviceHeader}>
-              <h2>Tagrenderens</h2>
-            </div>
-            <p className={styles.serviceDescription}>
-              Vi tilbyder professionel tagrenderens for at forhindre tilstopning og skader på dit tag ved at fjerne blade, snavs og andet affald.
-            </p>
-          </div>
-
-          <div className={styles.serviceSection}>
-            <div className={styles.serviceHeader}>
-              <h2>Kamrens</h2>
+              <h2>Karmrens</h2>
             </div>
             <p className={styles.serviceDescription}>
               Vores kamrens service sikrer, at dine vindueskarme er rene og fri for snavs, hvilket forbedrer både udseendet og funktionaliteten af dine vinduer.
             </p>
           </div>
         </div>
+        <FAQ />
       </section>
     </ContentWrapper>
   )

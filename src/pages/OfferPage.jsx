@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper'
 import styles from './OfferPage.module.scss'
 
@@ -12,6 +13,8 @@ export const OfferPage = () => {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [isSending, setIsSending] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,30 +24,51 @@ export const OfferPage = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    // Kombiner alle felter til en besked-streng for EmailJS
-    const emailMessage = `
-Navn: ${formData.name}
-Email: ${formData.email}
-Telefon: ${formData.phone}
+    setError('')
+    setIsSending(true)
 
-Besked:
-${formData.message}
-    `.trim()
-    
-    // Her kan du senere tilføje EmailJS
-    console.log('Message for EmailJS:', emailMessage)
-    
-    // Vis success besked
-    setSubmitted(true)
-    
-    // Nulstil form efter 3 sekunder
-    setTimeout(() => {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      setError('Udfyld venligst alle felter.')
+      setIsSending(false)
+      return
+    }
+
+    try {
+      const time = new Date().toLocaleString('da-DK', {
+        dateStyle: 'short',
+        timeStyle: 'short'
+      })
+
+      const templateParams = {
+        name: formData.name,
+        time,
+        message: `Email: ${formData.email}\nTelefon: ${formData.phone}\n\nBesked:\n${formData.message}`,
+        reply_to: formData.email,
+        from_name: formData.name,
+        from_email: formData.email
+      }
+
+      await emailjs.send(
+        'service_hm0e6y2',
+        'template_t948tc7',
+        templateParams,
+        'HIL8xam19sUgrelLb'
+      )
+
+      setSubmitted(true)
       setFormData({ name: '', email: '', phone: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
+
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+    } catch (err) {
+      console.error('EmailJS fejl:', err)
+      setError('Kunne ikke sende beskeden. Prøv igen om lidt.')
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -161,11 +185,13 @@ ${formData.message}
                   </div>
 
                   <button type="submit" className={styles.submitBtn}>
-                    <span>Send Tilbudsanmodning</span>
+                    <span>{isSending ? 'Sender...' : 'Send Tilbudsanmodning'}</span>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3 10H17M17 10L12 5M17 10L12 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
+
+                  {error && <p>{error}</p>}
                 </form>
               )}
             </div>
