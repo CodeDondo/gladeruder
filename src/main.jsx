@@ -6,7 +6,7 @@ import { ErrorFallback } from './components/ErrorFallback/ErrorFallback.jsx'
 import { AuthProvider } from './providers/AuthProvider.jsx'
 import App from './App.jsx'
 
-const GA_MEASUREMENT_ID = 'G-0K4ZSN0T0G'
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-0K4ZSN0T0G'
 
 const initializeGoogleAnalytics = () => {
   if (typeof window === 'undefined') {
