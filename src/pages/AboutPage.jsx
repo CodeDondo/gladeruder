@@ -123,7 +123,7 @@ export const AboutPage = () => {
 
           {/* CTA Section */}
           <div className={styles.ctaSection}>
-            <h2>Klar til gladerude?</h2>
+            <h2>Klar til glade ruder?</h2>
             <p>Kontakt mig for et uforpligtende tilbud på dine vinduesrengøringsbehov</p>
             <a href="/tilbud" className={styles.ctaButton}>
               <span>Få Tilbud Nu</span>

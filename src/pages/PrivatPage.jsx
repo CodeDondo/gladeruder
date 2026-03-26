@@ -101,7 +101,7 @@ export const PrivatPage = () => {
           <div className={styles.processSteps}>
             <div className={styles.step}>
               <div className={styles.stepNumber}>1</div>
-              <h3>Kontakt Mig</h3>
+              <h3>Kontakt</h3>
               <p>Ring eller udfyld vores kontaktformular for at få et uforpligtende tilbud</p>
             </div>
 
@@ -109,16 +109,16 @@ export const PrivatPage = () => {
 
             <div className={styles.step}>
               <div className={styles.stepNumber}>2</div>
-              <h3>Aftale Tid</h3>
-              <p>Vi aftaler et bekvemt tidspunkt der passer til dit skema</p>
+              <h3>Skræddersyet løsning</h3>
+              <p>Vi aftaler en skræddersyet løsning baseret på dine behov og ønsker</p>
             </div>
 
             <div className={styles.stepArrow}>→</div>
 
             <div className={styles.step}>
               <div className={styles.stepNumber}>3</div>
-              <h3>Rengøring</h3>
-              <p>Jeg udfører professionel vinduesrengøring med høj kvalitet</p>
+              <h3>Pudsning</h3>
+              <p>Jeg udfører professionel vinduespudsning med høj kvalitet</p>
             </div>
 
             <div className={styles.stepArrow}>→</div>
@@ -126,14 +126,14 @@ export const PrivatPage = () => {
             <div className={styles.step}>
               <div className={styles.stepNumber}>4</div>
               <h3>Betaling</h3>
-              <p>Enkelt betaling uden skjulte gebyrer efter afsluttet arbejde</p>
+              <p>Faktura tilsendt efter afsluttet arbejde</p>
             </div>
           </div>
         </div>
 
         {/* CTA */}
         <div className={styles.ctaSection}>
-          <h2>Klar til gladerude?</h2>
+          <h2>Klar til glade ruder?</h2>
           <p>Få et gratis og uforpligtende tilbud på vinduesrengøring til dit hjem</p>
           <Link to="/tilbud" className={styles.ctaButton}>
             <span>Få Tilbud Nu</span>

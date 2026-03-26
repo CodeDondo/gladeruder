@@ -159,10 +159,10 @@ export const ErhvervsPage = () => {
           </p>
 
           <div className={styles.packageGrid}>
-            <div className={styles.packageItem}>Vinduesrengoering inde og ude</div>
-            <div className={styles.packageItem}>Facaderengoering og glaspartier</div>
+            <div className={styles.packageItem}>Vinduesrengøring inde og ude</div>
+            <div className={styles.packageItem}>Facaderengøring og glaspartier</div>
             <div className={styles.packageItem}>Solcellerens for bedre ydelse</div>
-            <div className={styles.packageItem}>Regelmaessig vedligeholdelse</div>
+            <div className={styles.packageItem}>Regelmæssig vedligeholdelse</div>
             <div className={styles.packageItem}>Tagrenderens og afvandingstjek</div>
             <div className={styles.packageItem}>Fast kontakt og planlagte servicebesoeg</div>
           </div>
